@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lynx Code</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Lynx Code</h1>
+                <p>Powered by Granite AI - Perbaiki, Optimalkan, Jelaskan & Terjemahkan Kode Anda</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-code"></i> Masukkan Kode Anda</h2>
+                </div>
+                
+                <div class="code-input-container">
+                    <textarea 
+                        id="codeInput" 
+                        placeholder="Paste atau ketik kode Anda di sini...
+
+Contoh:
+def tambah(a, b)
+    return a + b
+
+function calculateSum(arr) {
+    let sum = 0;
+    for(i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}"
+                        spellcheck="false"
+                    ></textarea>
+                    <div class="input-footer">
+                        <span class="char-count">0 karakter</span>
+                        <button id="clearBtn" class="clear-btn">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-tools"></i> Pilih Aksi</h2>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="action-btn fix-btn" data-action="fix">
+                        <i class="fas fa-bug"></i>
+                        <span>Fix Code</span>
+                        <small>Perbaiki error & bug</small>
+                    </button>
+                    
+                    <button class="action-btn optimize-btn" data-action="optimize">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Optimize</span>
+                        <small>Tingkatkan performa</small>
+                    </button>
+                    
+                    <button class="action-btn explain-btn" data-action="explain">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Explain</span>
+                        <small>Jelaskan kode</small>
+                    </button>
+                    
+                    <button class="action-btn translate-btn" data-action="translate">
+                        <i class="fas fa-language"></i>
+                        <span>Conversion</span>
+                        <small>Konversi bahasa</small>
+                    </button>
+                </div>
+
+                <!-- Language Selection (for translate) -->
+                <div id="languageSelection" class="language-selection" style="display: none;">
+                    <label for="targetLanguage">Terjemahkan ke:</label>
+                    <select id="targetLanguage">
+                        <option value="Python">Python</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Java">Java</option>
+                        <option value="C++">C++</option>
+                        <option value="C#">C#</option>
+                        <option value="Go">Go</option>
+                        <option value="Rust">Rust</option>
+                        <option value="PHP">PHP</option>
+                        <option value="Ruby">Ruby</option>
+                        <option value="TypeScript">TypeScript</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Result Section -->
+            <div class="result-section" id="resultSection" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-magic"></i> Hasil AI</h2>
+                    <button id="copyResult" class="copy-btn">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+                
+                <div class="result-container">
+                    <div id="resultContent" class="result-content"></div>
+                </div>
+            </div>
+
+            <!-- Loading -->
+            <div id="loadingSection" class="loading-section" style="display: none;">
+                <div class="loading-spinner">
+                    <i class="fas fa-cog fa-spin"></i>
+                </div>
+                <p>AI sedang memproses kode Anda...</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Lynx Code. Powered by <strong>Granite AI</strong> from Replicate.</p>
+            <p>Created by <strong>Jaka Perdana</strong> Hacktiv8</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
