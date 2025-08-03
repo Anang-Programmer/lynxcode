@@ -85,9 +85,9 @@ git clone https://github.com/Anang-Programmer/lynxcode.git
 cd lynx-code
 ```
 
-### 2. Install Dependencies
+### 2. Install Dependencies Melalui File Requirements.txt
 ```bash
-pip install flask replicate python-dotenv
+pip install -r requirements.txt
 ```
 
 ### 3. Environment Configuration
